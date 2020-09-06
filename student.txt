@@ -1,0 +1,19 @@
+SCHEMA SQL
+create table test4(USN integer primary key,name varchar(10),PhoneNumber integer,branch varchar(10));
+insert into test4 values(01,'jacob',222222,'CS');
+insert into test4 values(02,'jerry',333333,'CS');                    
+insert into test4 values(03,'jane',555555,'EC');
+insert into test4 values(04,'jack',666666,'CS');
+insert into test4 values(05,'jill',999999,'AE');
+
+QUERY SQL
+select * from test4 where branch='CS';
+
+Query #1 Execution time: 1ms
+
+USN	name	PhoneNumber	branch
+1	jacob	222222	                    CS
+2	jerry	333333	                    CS
+4	jack	666666		 CS
+
+
