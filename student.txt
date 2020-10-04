@@ -12,8 +12,8 @@ select * from test4 where branch='CS';
 Query #1 Execution time: 1ms
 
 USN	name	PhoneNumber	branch
-1	  jacob	222222	     CS
-2	  jerry	333333	     CS
-4	  jack	666666		   CS
+1	  jacob	 222222	     CS
+2	  jerry	 333333	     CS
+4	  jack	 666666		   CS
 
 
