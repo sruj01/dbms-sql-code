@@ -1,0 +1,14 @@
+1.
+
+book_id	title	publisher_name	author_name	branch_id	no_of_copies
+10	DBMS	Mcgraw	Andrew	100	20
+10	DBMS	Mcgraw	Andrew	200	5
+20	SE	Pearson	Raj Kumar	300	15
+30	FLAT	SAM Pub	Samual	100	30
+40	BDA	IOP	Padma	500	7
+
+
+2.
+
+card_no
+202
