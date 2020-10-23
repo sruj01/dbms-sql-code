@@ -34,8 +34,11 @@ insert into book_copies values(20,300,15);
 insert into book_copies values(40,500,7);
 
 create table book_lending(book_id integer,branch_id integer,card_no integer,date_out date,due_date date,primary key(book_id,branch_id),foreign key(book_id) references book(book_id),foreign key(branch_id) references library_branch(branch_id));  
-insert into book_lending values(10,100,201,'2020-06-15','2020-06-25');
-insert into book_lending values(20,200,202,'2020-07-10','2020-07-20');
-insert into book_lending values(30,300,203,'2020-07-25','2020-07-30');
-insert into book_lending values(40,400,204,'2020-08-14','2020-08-26');
-insert into book_lending values(50,500,205,'2020-09-01','2020-09-10');
+insert into book_lending values(10,100,201,'2017-06-15','2020-06-25');
+insert into book_lending values(20,200,202,'2017-05-10','2017-05-20');
+insert into book_lending values(30,300,203,'2017-07-25','2020-07-30');
+insert into book_lending values(40,400,204,'2017-08-14','2020-08-26');
+insert into book_lending values(50,500,205,'2017-09-01','2020-09-10');
+insert into book_lending values(10,100,202,'2017-05-11','2017-05-21');
+insert into book_lending values(30,300,202,'2017-05-13','2017-05-22');
+insert into book_lending values(50,500,202,'2017-04-10','2017-04-20');
