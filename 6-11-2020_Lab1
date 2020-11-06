@@ -1,0 +1,8 @@
+5.create a view of all books and its no of copiesthat are currently available in the library
+
+create view v1 as
+select book_id,sum(no_of_copies)
+from book b,book_copies bb
+where b.book_id=bb.book_id group by book_id,title
+
+
