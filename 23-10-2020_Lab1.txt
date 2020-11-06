@@ -1,4 +1,8 @@
-1.
+1.Retrieve details of all the book in the library_id,title,name of publisher,authors,number_of_copies in each branch etc
+
+select b.book_id,title ,publisher_name,author_name,branch_id,No_of_copies
+from book b,book_authors ba,book_copies bc 
+where b.book_id=ba.book_id and bc.book_id=b.book_id
 
 book_id	title	publisher_name	author_name	branch_id	no_of_copies
 10	DBMS	Mcgraw	Andrew	100	20
@@ -8,7 +12,9 @@ book_id	title	publisher_name	author_name	branch_id	no_of_copies
 40	BDA	IOP	Padma	500	7
 
 
-2.
+2.get the particulars of borrowers who have borrowed more than 3 books, but from jan 2017 to june 2017
+
+select card_no from book_lending where date_out between '2017-01-01' and '2017-06-01'.Group by card_no having count(*)>3
 
 card_no
 202
