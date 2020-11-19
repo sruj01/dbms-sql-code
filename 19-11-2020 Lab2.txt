@@ -1,0 +1,18 @@
+create table salesman(salesman_id integer,name varchar(20),City varchar(10),Commission integer);
+insert into salesman values(10,"akash","mangalore",2);
+insert into salesman values(20,"ram","bangalore",10);
+insert into salesman values(30,"raj","Mangalore",5);
+insert into salesman values(40,"kiran","Mysore",15);
+
+create table customer(Customer_id integer,Cust_name varchar(20),city varchar(10),grade integer,salesman_id integer);
+insert into customer values(1000,"avinash","mangalore",100,10);
+insert into customer values(2000,"kumar","bangalore",200,10);
+insert into customer values(3000,"preethi","mysore",300,40);
+insert into customer values(4000,"smitha","mangalore",400,30);
+
+create table orders(ord_no integer,Purchase_amt integer,order_date varchar(10),customer_id integer,salesman_id integer);
+insert into orders values(551,5000,"4-Jan-20",1000,10);
+insert into orders values(552,2500,"-feb-20",2000,20);
+insert into orders values(553,500,"3-mar-20",3000,40);
+insert into orders values(554,1500,"2-apr-20",4000,30);
+insert into orders values(555,2000,"3-jun-20",2000,10);
