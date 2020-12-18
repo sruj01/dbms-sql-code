@@ -1,0 +1,46 @@
+create table ACTOR(Act_id integer primary key,Act_name varchar(20),Act_gender varchar(10));
+create table DIRECTOR(Dir_id integer primary key,Dir_name varchar(20),Dir_phone varchar(10));
+create table MOVIES(Mov_id integer primary key,Mov_title varchar(20),Mov_year integer,Mov_lang varchar(10),Dir_id integer,
+foreign key(Dir_id) references DIRECTOR(Dir_id));
+create table MOVIE_CAST(Act_id integer,Mov_id integer,Role varchar(20),primary key(Act_id,Mov_id),
+foreign key(Act_id) references ACTOR(Act_id), foreign key(Mov_id) references MOVIES(Mov_id));
+create table RATING(Mov_id integer primary key,Rev_stars integer,foreign key(Mov_id) references MOVIES(Mov_id));    
+insert into ACTOR values(101,'Rahul','Male');
+insert into ACTOR values(102,'Sneha','Female');
+insert into ACTOR values(103,'Ramesh','Male');
+insert into ACTOR values(104,'Sahana','Female');
+insert into ACTOR values(105,'Gayan','Male'); 
+insert into DIRECTOR values(11,'Hitchcock','9847569337');
+insert into DIRECTOR values(12,'Steven Spielberg','9274997667'); 
+insert into DIRECTOR values(13,'Swarna','8847562537'); 
+insert into DIRECTOR values(14,'Hitchcock','7547569327');
+insert into DIRECTOR values(15,'Steven Spielberg','7656562227'); 
+insert into MOVIES values(501,'XYZ',1995,'English',11);   
+insert into MOVIES values(502,'ABC',2005,'Hindi',13);
+insert into MOVIES values(503,'PQR',2002,'Kannada',11);  
+insert into MOVIES values(504,'RST',2019,'English',14);   
+insert into MOVIES values(505,'EFG',2006,'Kannada',15);   
+insert into MOVIE_CAST values(104,504,'Hero');
+insert into MOVIE_CAST values(102,502,'Heroine');
+insert into MOVIE_CAST values(103,505,'villain');
+insert into MOVIE_CAST values(104,502,'side actor');
+insert into MOVIE_CAST values(105,504,'side actor');
+insert into RATING values(501,3);
+insert into RATING values(502,5);
+insert into RATING values(503,2);
+insert into RATING values(504,5);
+insert into RATING values(505,4);
+
+select M.Mov_title from DIRECTOR D,MOVIES M where D.Dir_id=M.Dir_id AND D.Dir_name='Hitchcock';
+
+select Mov_title from MOVIES M,MOVIE_CAST C where
+M.Mov_id=C.Mov_id and Act_id in (select C.Act_id from MOVIE_CAST group by Act_id having count(*)>1)
+group by Mov_title having count(*)>1;
+
+(select Act_id from MOVIES M JOIN MOVIE_CAST MC on M.Mov_id=MC.Mov_id where Mov_year<2000) intersect 
+(select Act_id from MOVIES M JOIN MOVIE_CAST MC on M.Mov_id=MC.Mov_id where Mov_year>2015);
+
+select Mov_title,Rev_stars from MOVIES M,RATING R where M.Mov_id=R.Mov_id and Rev_stars>1 order by Mov_title;
+
+update RATING R,MOVIES M,DIRECTOR D set Rev_stars=5 where Dir_name='Steven Spielberg' and 
+M.Dir_id=D.Dir_id and M.Mov_id=R.Mov_id;
