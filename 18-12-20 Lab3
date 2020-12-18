@@ -1,0 +1,5 @@
+select Mov_title,rev_stars
+from MOVIES m, RATING r
+where m.Mov_id=r.Mov_id
+and Rev_stars in (select max(Rev_stars) from RATING)
+order by Mov_title;
